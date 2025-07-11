@@ -25,6 +25,7 @@ This project is designed to parse Python-related articles from Habr, extract use
 - Python 3.10+
 - `aiohttp`
 - `asyncio`
+- `request`
 - `beautifulsoup4`
 - `pandas`
 - `lxml`
