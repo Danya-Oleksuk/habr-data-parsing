@@ -53,4 +53,4 @@ pip install -r requirements.txt
 python main.py
 ```
 
-The parser will collect data from 50 pages of Habr's Python hub and save it to `parsed_data.xlsx`.
+The parser will collect data from pages of Habr's Python hub and save it to `parsed_data.xlsx`.
