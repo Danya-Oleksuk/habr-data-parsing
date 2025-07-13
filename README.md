@@ -16,7 +16,6 @@ This project is designed to parse Python-related articles from Habr, extract use
 - 📥 Saves results into a structured Excel file
 - 📊 Gathers title, link, article complexity level, and publication date
 - ♻ Handles up to 50 pages concurrently
-- 🧪 Safe and repeatable writes with `asyncio.Lock()`
 
 ---
 
