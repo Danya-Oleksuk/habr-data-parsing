@@ -24,10 +24,10 @@ jobs:
     - name: Lint with flake8
       run: black .
     
-    - name: Commit changes
+    - name: Push changes
       run: |
         git config --global user.name "github-actions"
         git config --global user.email "github-actions@github.com"
         git add .
         git commit -m "Apply black formatting" || echo "No changes to commit"
-        git push
+        git push https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/Danya-Oleksuk/habr-data-parsing.git HEAD:main
