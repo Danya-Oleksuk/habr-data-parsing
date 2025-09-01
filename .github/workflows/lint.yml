@@ -1,36 +1,35 @@
-name: Python Lint Check
+name: Python Code Formatter
 
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
-  lint:
+  format:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
       with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Set up Python 3.8
-      uses: actions/setup-python@v2
+    - name: Set up Python
+      uses: actions/setup-python@v4
       with:
-        python-version: 3.8
+        python-version: '3.8'
 
     - name: Install black
       run: pip install black
     
-    - name: Lint with black
+    - name: Format code with black
       run: black .
     
-    - name: Push changes
+    - name: Commit and push changes
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
         git add .
-        git diff --staged --quiet || git commit -m "Apply black formatting"
+        git commit -m "Apply black formatting" || echo "No changes to commit"
         git push
-
