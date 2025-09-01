@@ -21,7 +21,7 @@ jobs:
     - name: Install black
       run: pip install black
     
-    - name: Lint with flake8
+    - name: Lint with black
       run: black .
     
     - name: Push changes
@@ -31,3 +31,4 @@ jobs:
         git add .
         git commit -m "Apply black formatting" || echo "No changes to commit"
         git push https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/Danya-Oleksuk/habr-data-parsing.git HEAD:main
+
